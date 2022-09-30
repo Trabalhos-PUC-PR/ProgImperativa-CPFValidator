@@ -16,26 +16,26 @@ int main()
 
     if (verifyData(data, size, totalSymbols))
     {
-        if (!verifyDigit(1, data) || !verifyDigit(2, data))
+        if (verifyDigit(1, data) && verifyDigit(2, data))
         {
-            printf("\n\tCPF invalido!\n");
-            return -1;
+            printf("\n\tO cpf %s é um cpf válido!\n", &data);
+            return 0;
         }
 
-        printf("\n\tO cpf %s é um cpf válido!\n", &data);
+        printf("\n\tCPF invalido!\n");
+        return -1;
     }
     else
     {
         printf("\n\tERROR!\n");
         return -1;
     }
-    return 0;
 }
 
 /**
  * @brief verifies specified digit of cpf, values are hard coded
  *
- * @param digitAfterBar  
+ * @param digitAfterBar
  * @param vector
  * @return 0 if the digit is invalid, otherwise returns 1
  */
